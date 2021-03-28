@@ -22,7 +22,7 @@ func ToString(data interface{}, force bool) (string, error) {
 	return ret, nil
 }
 
-func ToSliceString(data interface{}, force bool) ([]string, error) {
+func ToSliceString(data interface{}) ([]string, error) {
 	ret, ok := data.([]string)
 	if !ok {
 		typeData := fmt.Sprintf("%v", reflect.TypeOf(data))
