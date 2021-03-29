@@ -28,6 +28,17 @@ func ToInt64(data interface{}) (int64, error) {
 	return ret, nil
 }
 
+func ToFloat64(data interface{}) (float64, error) {
+	str := fmt.Sprintf("%v", data)
+	ret, err := strconv.ParseFloat(str, 10)
+	if err != nil {
+		typeData := ""
+		typeData = fmt.Sprintf("%v", reflect.TypeOf(data))
+		return 0, errors.New(`data is ` + typeData + ` not float64`)
+	}
+	return ret, nil
+}
+
 func ToSliceInt(data interface{}) ([]int, error) {
 	ret, ok := data.([]int)
 	if !ok {
